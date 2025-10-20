@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LaFokinCabra.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="16" Padding="20">
+            <!-- Encabezado bonito -->
+            <Grid Padding="16" BackgroundColor="#E0EAFF" ColumnDefinitions="Auto,*" ColumnSpacing="12"
+            Style="{x:Null}">
+                <Label Text="📱" FontSize="36" VerticalOptions="Center"/>
+                <VerticalStackLayout>
+                    <Label Text="Dashboard de Sensores" FontSize="24" FontAttributes="Bold"/>
+                    <Label Text="Activa los sensores y observa las lecturas en tiempo real" FontSize="12" TextColor="{StaticResource TextMuted}"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- Controles globales -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Button Text="Iniciar todos" Clicked="StartAll_Clicked" BackgroundColor="{StaticResource Primary}" TextColor="White"/>
+                <Button Text="Detener todos" Clicked="StopAll_Clicked"/>
+            </Grid>
+
+            <!-- Tarjeta: Acelerómetro -->
+            <Frame Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12">
+                    <Label Text="🧭" FontSize="28" Grid.RowSpan="4"/>
+                    <Label Text="Acelerómetro" FontSize="18" FontAttributes="Bold"/>
+                    <Label x:Name="AccelValue" Grid.Row="1" FontSize="28"/>
+                    <Label x:Name="AccelDetail" Grid.Row="2" FontSize="12" TextColor="{StaticResource TextMuted}"/>
+                    <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto" ColumnSpacing="8">
+                        <Label Text="Activo" VerticalOptions="Center"/>
+                        <Switch x:Name="AccelSwitch" Toggled="AccelSwitch_Toggled"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+
+            <!-- Tarjeta: Brújula -->
+            <Frame Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12">
+                    <Label Text="🧭" FontSize="28" Grid.RowSpan="4"/>
+                    <Label Text="Brújula" FontSize="18" FontAttributes="Bold"/>
+                    <Label x:Name="CompassValue" Grid.Row="1" FontSize="28"/>
+                    <Label x:Name="CompassDetail" Grid.Row="2" FontSize="12" TextColor="{StaticResource TextMuted}"/>
+                    <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto" ColumnSpacing="8">
+                        <Label Text="Activo" VerticalOptions="Center"/>
+                        <Switch x:Name="CompassSwitch" Toggled="CompassSwitch_Toggled"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+
+            <!-- Tarjeta: Barómetro -->
+            <Frame Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12">
+                    <Label Text="🌡️" FontSize="28" Grid.RowSpan="4"/>
+                    <Label Text="Barómetro" FontSize="18" FontAttributes="Bold"/>
+                    <Label x:Name="BarometerValue" Grid.Row="1" FontSize="28"/>
+                    <Label x:Name="BarometerDetail" Grid.Row="2" FontSize="12" TextColor="{StaticResource TextMuted}"/>
+                    <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto" ColumnSpacing="8">
+                        <Label Text="Activo" VerticalOptions="Center"/>
+                        <Switch x:Name="BarometerSwitch" Toggled="BarometerSwitch_Toggled"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+
+            <!-- Tarjeta: Giroscopio -->
+            <Frame Style="{StaticResource Card}">
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto" ColumnSpacing="12">
+                    <Label Text="🔄" FontSize="28" Grid.RowSpan="4"/>
+                    <Label Text="Giroscopio" FontSize="18" FontAttributes="Bold"/>
+                    <Label x:Name="GyroValue" Grid.Row="1" FontSize="28"/>
+                    <Label x:Name="GyroDetail" Grid.Row="2" FontSize="12" TextColor="{StaticResource TextMuted}"/>
+                    <Grid Grid.Row="3" ColumnDefinitions="Auto,Auto" ColumnSpacing="8">
+                        <Label Text="Activo" VerticalOptions="Center"/>
+                        <Switch x:Name="GyroSwitch" Toggled="GyroSwitch_Toggled"/>
+                    </Grid>
+                </Grid>
+            </Frame>
+
+            <Label x:Name="StatusLabel" Text="Listo" FontSize="12" TextColor="{StaticResource TextMuted}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
